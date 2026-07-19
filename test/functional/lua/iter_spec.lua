@@ -696,6 +696,11 @@ describe('vim.iter', function()
     )
   end)
 
+  it('count()', function()
+    eq(5, vim.iter({ 1, 2, 3, 4, 5 }):count())
+    eq(3, vim.iter({ a = 1, b = 2, c = 3 }):count())
+  end)
+
   it('handles map-like tables', function()
     local it = vim.iter({ a = 1, b = 2, c = 3 }):map(function(k, v)
       if v % 2 ~= 0 then

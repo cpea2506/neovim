@@ -1227,6 +1227,15 @@ function IterArray:enumerate()
   return self
 end
 
+--- Returns the number of items in the iterator.
+---
+--- @return integer
+function Iter:count()
+  return self:fold(0, function(acc)
+    return acc + 1
+  end)
+end
+
 --- Creates a new Iter object from a table or other |iterable|.
 ---
 --- @generic R1, R...
